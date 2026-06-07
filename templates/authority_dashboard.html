@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="page-banner">
+    <h1>Authority Dashboard</h1>
+</section>
+
+<section class="content-section">
+
+    <h2>Manage Complaints</h2>
+
+    <div class="issue-grid">
+
+        {% for issue in issues %}
+
+        <div class="issue-card">
+
+            <h3>{{ issue.title }}</h3>
+
+            <p><b>User:</b> {{ issue.user.username }}</p>
+            <p><b>Category:</b> {{ issue.category }}</p>
+            <p><b>Location:</b> {{ issue.location }}</p>
+            <p><b>Description:</b> {{ issue.description }}</p>
+            <p><b>Status:</b> {{ issue.status }}</p>
+
+            {% if issue.image %}
+                <img src="{{ issue.image.url }}" style="width:100%; border-radius:10px;">
+            {% endif %}
+
+            <hr>
+
+            <!-- 🔥 INLINE EDIT FORM (ONLY FOR STAFF) -->
+            {% if user.is_staff %}
+
+            <details>
+                <summary style="cursor:pointer; font-weight:bold;">
+                    Edit / Update Issue
+                </summary>
+
+                <form method="POST" action="{% url 'update_issue' issue.id %}" style="margin-top:15px;">
+                    {% csrf_token %}
+
+                    <label>Status</label>
+                    <select name="status">
+                        <option value="Pending" {% if issue.status == "Pending" %}selected{% endif %}>Pending</option>
+                        <option value="In Progress" {% if issue.status == "In Progress" %}selected{% endif %}>In Progress</option>
+                        <option value="Resolved" {% if issue.status == "Resolved" %}selected{% endif %}>Resolved</option>
+                    </select>
+
+                    <br><br>
+
+                    <label>Resolution Note</label>
+                    <textarea name="resolution_note" rows="3">{{ issue.resolution_note }}</textarea>
+
+                    <br><br>
+
+                    <button type="submit" class="btn">
+                        Save Update
+                    </button>
+
+                </form>
+            </details>
+
+            {% endif %}
+
+        </div>
+
+        {% empty %}
+            <h3>No complaints found</h3>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

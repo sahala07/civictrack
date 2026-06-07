@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-box">
+
+        <h1>Create Your CivicTrack Account</h1>
+
+        <p>
+            Join CivicTrack and help improve your community.
+        </p>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <p>
+
+            Already have an account?
+
+            <a href="{% url 'login' %}">
+                Login Here
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

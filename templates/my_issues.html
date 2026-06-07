@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="issues-section">
+
+    <h1>My Complaints</h1>
+
+    <div class="issue-grid">
+
+        {% for issue in issues %}
+
+        <div class="issue-card">
+
+            <h2>{{ issue.title }}</h2>
+
+            <p>
+                <strong>Category:</strong>
+                {{ issue.category }}
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                {{ issue.location }}
+            </p>
+
+            <p>
+                <strong>Date:</strong>
+                {{ issue.created_at }}
+            </p>
+
+            <p>
+    <strong>Status:</strong>
+    <span class="status {{ issue.status|slugify }}">
+        {{ issue.status }}
+    </span>
+</p>
+
+            {% if issue.image %}
+                <img src="{{ issue.image.url }}"
+                     class="issue-image">
+            {% endif %}
+
+            {% if issue.resolution_note %}
+
+                <div class="resolution-box">
+
+                    <strong>Authority Update:</strong>
+
+                    <p>
+                        {{ issue.resolution_note }}
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        {% empty %}
+
+        <h2 style="text-align:center;">
+            You have not submitted any complaints yet.
+        </h2>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

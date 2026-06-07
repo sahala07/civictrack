@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="issues-section">
+
+    <h1>My Complaints</h1>
+
+    <div class="issue-grid">
+
+        {% for issue in issues %}
+
+        <div class="issue-card">
+
+            <h3>{{ issue.title }}</h3>
+
+            <p><strong>Category:</strong> {{ issue.category }}</p>
+
+            <p><strong>Location:</strong> {{ issue.location }}</p>
+
+            <p><strong>Status:</strong> {{ issue.status }}</p>
+
+            <p><strong>Date:</strong> {{ issue.created_at }}</p>
+
+            {% if issue.image %}
+                <img src="{{ issue.image.url }}" alt="Issue Image">
+            {% endif %}
+
+            {% if issue.status == 'Resolved' %}
+                <p style="color:green;font-weight:bold;">
+                    ✓ Resolved
+                </p>
+            {% endif %}
+
+        </div>
+
+        {% empty %}
+
+        <h2>No complaints submitted yet.</h2>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

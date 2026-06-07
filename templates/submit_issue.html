@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-box">
+
+        <h1>Register a Complaint</h1>
+
+        <p>
+            Help improve your community by reporting
+            public issues.
+        </p>
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn">
+                Submit Complaint
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

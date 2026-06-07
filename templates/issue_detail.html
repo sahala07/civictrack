@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="detail-container">
+
+    <div class="detail-card">
+
+        <h1>{{ issue.title }}</h1>
+
+        <p>
+            <strong>Category:</strong>
+            {{ issue.category }}
+        </p>
+
+        <p>
+            <strong>Location:</strong>
+            {{ issue.location }}
+        </p>
+
+        <p>
+            <strong>Status:</strong>
+            {{ issue.status }}
+        </p>
+
+        <p>
+            <strong>Submitted By:</strong>
+            {{ issue.user.username }}
+        </p>
+
+        <p>
+            <strong>Date:</strong>
+            {{ issue.created_at }}
+        </p>
+
+        <hr>
+
+        <h3>Description</h3>
+
+        <p>
+            {{ issue.description }}
+        </p>
+
+        {% if issue.image %}
+
+            <h3>Issue Image</h3>
+
+            <img
+                src="{{ issue.image.url }}"
+                class="detail-image"
+            >
+
+        {% endif %}
+
+        {% if issue.resolution_note %}
+
+            <h3>Resolution Note</h3>
+
+            <p>
+                {{ issue.resolution_note }}
+            </p>
+
+        {% endif %}
+
+        {% if issue.resolution_image %}
+
+            <h3>Resolution Image</h3>
+
+            <img
+                src="{{ issue.resolution_image.url }}"
+                class="detail-image"
+            >
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-box">
+
+        <h1>Update Complaint</h1>
+
+        <hr>
+
+        <h2>{{ issue.title }}</h2>
+
+        <p>
+            <strong>Category:</strong>
+            {{ issue.category }}
+        </p>
+
+        <p>
+            <strong>Location:</strong>
+            {{ issue.location }}
+        </p>
+
+        <p>
+            <strong>Description:</strong>
+            {{ issue.description }}
+        </p>
+
+        {% if issue.image %}
+            <img src="{{ issue.image.url }}"
+                 class="issue-image">
+        {% endif %}
+
+        <br><br>
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn">
+                Save Update
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

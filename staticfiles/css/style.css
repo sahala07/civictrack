@@ -1,0 +1,429 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#f8f9fa;
+    color:#333;
+}
+
+/* NAVBAR */
+
+header{
+    background:#0d6efd;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:white;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:17px;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:#ffd43b;
+}
+
+/* HERO */
+
+.hero{
+    background:url("../images/hero.jpg");
+    background-size:cover;
+    background-position:center;
+    height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.55);
+}
+
+.hero-overlay{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:white;
+    max-width:800px;
+}
+
+.hero-overlay h1{
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+.hero-overlay p{
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+/* BUTTONS */
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:#0d6efd;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    margin:8px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#084298;
+}
+
+.btn-secondary{
+    background:#198754;
+}
+
+.btn-secondary:hover{
+    background:#146c43;
+}
+
+/* PAGE BANNER */
+
+.page-banner{
+    background:#0d6efd;
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.page-banner h1{
+    font-size:50px;
+}
+
+/* CONTENT */
+
+.content-section{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.content-section h2{
+    margin-top:25px;
+    margin-bottom:10px;
+    color:#0d6efd;
+}
+
+.content-section p,
+.content-section li{
+    line-height:1.8;
+    font-size:18px;
+}
+
+/* FEATURES */
+
+.features{
+    padding:80px 30px;
+    text-align:center;
+}
+
+.features h2{
+    margin-bottom:40px;
+}
+
+.feature-container{
+    display:flex;
+    gap:25px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.feature-card{
+    width:320px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.feature-card h3{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+/* STATS */
+
+.stats-section{
+    padding:70px 20px;
+    text-align:center;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat-card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.stat-card h3{
+    font-size:40px;
+    color:#198754;
+}
+
+/* FORMS */
+
+.login-container,
+.form-container{
+    display:flex;
+    justify-content:center;
+    padding:60px 20px;
+}
+
+.login-box,
+.form-box{
+    width:700px;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.login-box h2,
+.form-box h1{
+    text-align:center;
+    margin-bottom:20px;
+    color:#0d6efd;
+}
+
+.login-box input,
+.form-box input,
+.form-box textarea,
+.form-box select{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+button{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#084298;
+}
+
+/* COMPLAINT CARDS */
+
+.issue-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
+}
+
+.issue-card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.issue-card img{
+    width:100%;
+    margin-top:15px;
+    border-radius:10px;
+}
+
+/* PROFILE */
+
+.profile-container{
+    padding:50px;
+}
+
+.profile-card{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+/* CONTACT */
+
+.contact-card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+/* FOOTER */
+
+footer{
+    background:#212529;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+}
+
+/* STATUS */
+
+.status-badge{
+    padding:6px 12px;
+    border-radius:20px;
+    color:white;
+    font-size:14px;
+}
+
+.pending{
+    background:orange;
+}
+
+.progress{
+    background:#0d6efd;
+}
+
+.resolved{
+    background:#198754;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header{
+    flex-direction:column;
+}
+
+nav{
+    margin-top:15px;
+}
+
+.hero-overlay h1{
+    font-size:42px;
+}
+
+.hero-overlay p{
+    font-size:18px;
+}
+
+}
+.profile-page{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:70vh;
+}
+
+.profile-card{
+    width:600px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.profile-card h1{
+    color:#0284c7;
+    margin-bottom:20px;
+}
+
+.profile-details{
+    margin-top:25px;
+}
+
+.profile-details p{
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+.logout-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
+    background:#dc2626;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.logout-btn:hover{
+    background:#b91c1c;
+}
+.status {
+    padding: 6px 12px;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+}
+
+/* Pending */
+.status.pending {
+    background: #f59e0b;
+}
+
+/* In Progress */
+.status.in-progress {
+    background: #3b82f6;
+}
+
+/* Resolved */
+.status.resolved {
+    background: #22c55e;
+}
+.issue-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.issue-card:hover {
+    transform: translateY(-5px);
+}
+
+.issue-image {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.issue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}

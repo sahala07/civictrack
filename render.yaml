@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: heatbox-portal
+    name: civictrack
     env: docker
     branch: main
     buildCommand: docker build -t render-web .
